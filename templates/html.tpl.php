@@ -44,29 +44,26 @@
  */
 ?>
 <!DOCTYPE html>
-
 <!--[if IEMobile 7]><html class="iem7"><![endif]-->
 <!--[if (IE 7)&!(IEMobile)]><html class="no-js ie ie7" lang="<?php print $language->language; ?>"><![endif]-->
 <!--[if (IE 8)&!(IEMobile)]><html class="no-js ie ie8" lang="<?php print $language->language; ?>"><![endif]-->
 <!--[if (IE 9)&!(IEMobile)]><html class="no-js ie ie9" lang="<?php print $language->language; ?>"><![endif]-->
 <!--[if (gt IE 9)|(gt IEMobile 7)|!(IE)]><!--><html class="no-js" lang="<?php print $language->language; ?>"><!--<![endif]-->
-
-<head>
-  <title><?php print $head_title; ?></title>
-  <?php print $head; ?>
-  <?php print $styles; ?>
-  <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
-  <![endif]-->
-</head>
-
-<body class="<?php print $classes; ?>" <?php print $attributes;?>>
-  <?php print $page_top; ?>
-  <?php print $page; ?>
-  <?php print $scripts; ?>
-  <!--[if !(IE)]><!-->
-    <script src="<?php echo $theme_folder ?>/js/ios-orientationchange-fix.js"></script>
-  <!--<![endif]-->
-  <?php print $page_bottom; ?>
-</body>
+  <head>
+    <title><?php print $head_title; ?></title>
+    <?php print $head; ?>
+    <?php print $styles; ?>
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+  </head>
+  <body class="<?php print $classes; ?>" <?php print $attributes;?>>
+    <?php print $page_top; ?>
+    <?php print $page; ?>
+    <?php print $scripts; ?>
+    <!--[if !(IE)]><!-->
+      <script src="<?php echo $theme_folder ?>/js/ios-orientationchange-fix.js"></script>
+    <!--<![endif]-->
+    <?php print $page_bottom; ?>
+  </body>
 </html>

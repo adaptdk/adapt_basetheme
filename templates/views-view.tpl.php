@@ -70,5 +70,4 @@
   <?php if ($feed_icon): ?>
     <?php print $feed_icon; ?>
   <?php endif; ?>
-
 </div>
