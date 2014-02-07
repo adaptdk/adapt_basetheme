@@ -16,15 +16,6 @@ function basetheme_form_system_theme_settings_alter(&$form, &$form_state) {
       '#default_value' => theme_get_setting('css_to_keep'),
       ),
 
-    'js_overload' => array(
-      '#type' => 'textfield',
-      '#title' => t('Overload jQuery'),
-      '#description' => t('Overload jQuery with a newer version than Drupal\'s 1.4.4. Do this at your own risk and only when absolutely necessary, as it might cause problems with Drupal core functionality'),
-      '#size' => 8,
-      '#maxlength' => 10,
-      '#default_value' => theme_get_setting('js_overload'),
-      ),
-
     'js_to_strip' => array(
       '#type' => 'textarea',
       '#title' => t('JS to strip'),
