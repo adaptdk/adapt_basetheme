@@ -265,12 +265,6 @@ function basetheme_css_alter(&$css) {
  * Implements hook_js_alter().
  */
 function basetheme_js_alter(&$js) {
-  // Overload jQuery
-  if (theme_get_setting('js_overload')) {
-    unset($js['misc/jquery.js']);
-    drupal_add_js('//ajax.googleapis.com/ajax/libs/jquery/' . theme_get_setting('js_overload') . '/jquery.min.js', array('type' => 'external', 'scope' => 'header', 'weight' => 0, 'group' => '-200'));
-  }
-
   // Strip the JS we defined in our settings
   if (!theme_get_setting('js_to_strip')) {
     return;
@@ -303,13 +297,6 @@ function basetheme_js_alter(&$js) {
 
 // NAVIGATION
 // -----------
-
-/**
- * Overwrite theme_menu_tree().
- */
-function basetheme_menu_tree($variables) {
-  return '<ul class="menu">' . $variables['tree'] . '</ul>';
-}
 
 /**
  * Overwrite theme_menu_link().
