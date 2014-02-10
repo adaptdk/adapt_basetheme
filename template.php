@@ -7,7 +7,7 @@
 /**
  * Implements template_preprocess_html().
  */
-function basetheme_preprocess_html(&$variables) {
+function adapt_basetheme_preprocess_html(&$variables) {
   // Add theme folder
   $variables['theme_folder'] = base_path() . path_to_theme();
 
@@ -37,7 +37,7 @@ function basetheme_preprocess_html(&$variables) {
 /**
  * Implements template_preprocess_page().
  */
-function basetheme_preprocess_page(&$variables, $hook) {
+function adapt_basetheme_preprocess_page(&$variables, $hook) {
   // Remove div wrapper around main content
   if (isset($variables['page']['content']['system_main']['#theme_wrappers']) && is_array($variables['page']['content']['system_main']['#theme_wrappers'])) {
     $variables['page']['content']['system_main']['#theme_wrappers'] = array_diff($variables['page']['content']['system_main']['#theme_wrappers'], array('block'));
@@ -47,7 +47,7 @@ function basetheme_preprocess_page(&$variables, $hook) {
 /**
  * Implements template_preprocess_block().
  */
-function basetheme_preprocess_block(&$variables) {
+function adapt_basetheme_preprocess_block(&$variables) {
   $block = $variables['elements']['#block'];
 
   // Add a theme suggestion to block--menu.tpl so we dont have create a ton of blocks with <nav>
@@ -85,7 +85,7 @@ function basetheme_preprocess_block(&$variables) {
 /**
  * Implements template_preprocess_taxonomy_term().
  */
-function basetheme_preprocess_taxonomy_term(&$variables) {
+function adapt_basetheme_preprocess_taxonomy_term(&$variables) {
   // Remove taxonomy term description wrapper
   if (!empty($variables['content']['description'])) {
     $variables['content']['description']['#prefix'] = '';
@@ -96,7 +96,7 @@ function basetheme_preprocess_taxonomy_term(&$variables) {
 /**
  * Implements template_preprocess_views_view_table().
  */
-function basetheme_preprocess_views_view_table(&$variables) {
+function adapt_basetheme_preprocess_views_view_table(&$variables) {
   // If there are no classes to be added, do nothing
   if (!$variables['options']['default_row_class'] && !$variables['options']['row_class_special']) {
     return;
@@ -132,14 +132,14 @@ function basetheme_preprocess_views_view_table(&$variables) {
 /**
  * Implements template_preprocess_views_view_list().
  */
-function basetheme_preprocess_views_view_list(&$variables) {
+function adapt_basetheme_preprocess_views_view_list(&$variables) {
   basetheme_preprocess_views_view_unformatted($variables);
 }
 
 /**
  * Implement template_preprocess_views_view_unformatted().
  */
-function basetheme_preprocess_views_view_unformatted(&$variables) {
+function adapt_basetheme_preprocess_views_view_unformatted(&$variables) {
   // If there are no classes to be added, do nothing
   if (!$variables['options']['default_row_class'] && !$variables['options']['row_class_special']) {
     return;
@@ -180,7 +180,7 @@ function basetheme_preprocess_views_view_unformatted(&$variables) {
 /**
  * Implements hook_html_head_alter().
  */
-function basetheme_html_head_alter(&$head_elements) {
+function adapt_basetheme_html_head_alter(&$head_elements) {
   unset($head_elements['system_meta_generator']);
 
   global $theme;
@@ -231,7 +231,7 @@ function basetheme_html_head_alter(&$head_elements) {
 /**
  * Implements hook_css_alter().
  */
-function basetheme_css_alter(&$css) {
+function adapt_basetheme_css_alter(&$css) {
   global $theme;
   $path = drupal_get_path('theme', $theme);
 
@@ -264,7 +264,7 @@ function basetheme_css_alter(&$css) {
 /**
  * Implements hook_js_alter().
  */
-function basetheme_js_alter(&$js) {
+function adapt_basetheme_js_alter(&$js) {
   // Strip the JS we defined in our settings
   if (!theme_get_setting('js_to_strip')) {
     return;
@@ -301,7 +301,7 @@ function basetheme_js_alter(&$js) {
 /**
  * Overwrite theme_menu_link().
  */
-function basetheme_menu_link(&$variables) {
+function adapt_basetheme_menu_link(&$variables) {
   // Classes to keep. We don't keep active & active-trail because they're already added to the anchor element
   $classes_to_keep = array(
     'first' => TRUE,
@@ -335,7 +335,7 @@ function basetheme_menu_link(&$variables) {
 /**
  * Overwrite theme_breadcrumb().
  */
-function basetheme_breadcrumb($variables) {
+function adapt_basetheme_breadcrumb($variables) {
   $breadcrumb = $variables['breadcrumb'];
 
   return implode(' &raquo; ', $breadcrumb);
@@ -345,7 +345,7 @@ function basetheme_breadcrumb($variables) {
  * Overwrite theme_links().
  * Specifically for language switcher
  */
-function basetheme_links__locale_block($variables) {
+function adapt_basetheme_links__locale_block($variables) {
   $links = $variables['links'];
 
   $output = '';
@@ -394,7 +394,7 @@ function basetheme_links__locale_block($variables) {
 /**
  * Overwrite theme_pager().
  */
-function basetheme_pager($variables) {
+function adapt_basetheme_pager($variables) {
   $tags = $variables['tags'];
   $element = $variables['element'];
   $parameters = $variables['parameters'];
@@ -509,7 +509,7 @@ function basetheme_pager($variables) {
 /**
  * Overwrite theme_form().
  */
-function basetheme_form($variables) {
+function adapt_basetheme_form($variables) {
   $element = $variables['element'];
   if (isset($element['#action'])) {
     $element['#attributes']['action'] = drupal_strip_dangerous_protocols($element['#action']);
@@ -528,7 +528,7 @@ function basetheme_form($variables) {
 /**
  * Overwrite theme_item_list().
  */
-function basetheme_item_list($variables) {
+function adapt_basetheme_item_list($variables) {
   $items = $variables['items'];
   $title = $variables['title'];
   $type = $variables['type'];

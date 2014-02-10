@@ -3,7 +3,7 @@
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function basetheme_form_system_theme_settings_alter(&$form, &$form_state) {
+function adapt_basetheme_form_system_theme_settings_alter(&$form, &$form_state) {
   // Create own settings
   $basetheme_settings = array(
     '#type' => 'fieldset',
