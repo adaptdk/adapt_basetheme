@@ -83,6 +83,19 @@ function adapt_basetheme_preprocess_block(&$variables) {
 }
 
 /**
+ * Implements template_preprocess_panels_pane()
+ */
+function adapt_basetheme_preprocess_panels_pane(&$variables) {
+  $classes_to_strip = array(
+    'panel-pane',
+    'pane-block',
+    'pane-views-panes'
+  );
+
+  $variables['classes_array'] = array_diff($variables['classes_array'], $classes_to_strip);
+}
+
+/**
  * Implements template_preprocess_taxonomy_term().
  */
 function adapt_basetheme_preprocess_taxonomy_term(&$variables) {
