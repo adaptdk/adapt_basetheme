@@ -61,9 +61,6 @@
     <?php print $page_top; ?>
     <?php print $page; ?>
     <?php print $scripts; ?>
-    <!--[if !(IE)]><!-->
-      <script src="<?php echo $theme_folder ?>/js/ios-orientationchange-fix.js"></script>
-    <!--<![endif]-->
     <?php print $page_bottom; ?>
   </body>
 </html>

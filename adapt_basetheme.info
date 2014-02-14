@@ -9,6 +9,7 @@ engine      = phptemplate
 
 scripts[] = js/respond.js
 scripts[] = js/script.js
+scripts[] = js/ios-orientationchange-fix.js
 
 
 ; REGIONS
