@@ -146,7 +146,7 @@ function adapt_basetheme_preprocess_views_view_table(&$variables) {
  * Implements template_preprocess_views_view_list().
  */
 function adapt_basetheme_preprocess_views_view_list(&$variables) {
-  basetheme_preprocess_views_view_unformatted($variables);
+  adapt_basetheme_preprocess_views_view_unformatted($variables);
 }
 
 /**
