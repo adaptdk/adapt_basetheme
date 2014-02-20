@@ -206,7 +206,7 @@ function adapt_basetheme_html_head_alter(&$head_elements) {
     '#tag' => 'link',
     '#attributes' => array(
       'rel' => 'apple-touch-icon',
-      'href' => $path . '/img/apple-touch-icon.png',
+      'href' => $path . '/images/apple-touch-icon.png',
       ),
     );
   // Bigger sizes
@@ -222,7 +222,7 @@ function adapt_basetheme_html_head_alter(&$head_elements) {
       '#attributes' => array(
         'rel' => 'apple-touch-icon',
         'sizes' => $size,
-        'href' => $path . '/img/apple-touch-icon-' . $size . '.png',
+        'href' => $path . '/images/apple-touch-icon-' . $size . '.png',
         ),
       );
   }
