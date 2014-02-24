@@ -87,13 +87,17 @@ function adapt_basetheme_preprocess_block(&$variables) {
  */
 function adapt_basetheme_preprocess_panels_pane(&$variables) {
   $classes_to_strip = array(
-    'panel-pane',
-    'pane-block',
-    'pane-views-panes'
+    'panel-pane' => 'panel-pane',
   );
 
-  $variables['classes_array'] = array_diff($variables['classes_array'], $classes_to_strip);
+  // Strip all classes beginning with 'pane-'
+  foreach ($variables['classes_array'] as $key => $class) {
+    if (substr($class, 0, 5) == 'pane-' || isset($classes_to_strip[$class])) {
+      unset($variables['classes_array'][$key]);
+    }
+  }
 }
+
 
 /**
  * Implements template_preprocess_taxonomy_term().
