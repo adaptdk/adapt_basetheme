@@ -111,6 +111,16 @@ function adapt_basetheme_preprocess_taxonomy_term(&$variables) {
 }
 
 /**
+ * Implements template_preprocess_field().
+ */
+function adapt_basetheme_preprocess_field(&$variables) {
+  // Replace all field classes with just one class
+  $variables['classes_array'] = array(
+    drupal_html_class('field ' . $variables['element']['#field_name']),
+  );
+}
+
+/**
  * Implements template_preprocess_views_view_table().
  */
 function adapt_basetheme_preprocess_views_view_table(&$variables) {

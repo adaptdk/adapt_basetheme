@@ -47,7 +47,7 @@
 <?php endif; ?>
   <?php if (!$label_hidden) : ?>
     <?php if ($label_wrapper): ?>
-    <<?php print $label_wrapper; ?> class=<?php print $title_attributes; ?>>
+    <<?php print $label_wrapper; ?>>
     <?php endif; ?>
       <?php print $label ?>&nbsp;
     <?php if ($label_wrapper): ?>
