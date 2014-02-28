@@ -12,7 +12,7 @@
  */
 ?>
 <?php if ($field_wrapper): ?>
-  <<?php print $field_wrapper; ?> class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+  <<?php print $field_wrapper; ?> class="<?php print $classes; ?>"<?php print $attributes; ?>>
 <?php endif; ?>
 
   <?php if (!$label_hidden) : ?>
