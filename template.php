@@ -118,6 +118,11 @@ function adapt_basetheme_preprocess_field(&$variables) {
   $variables['classes_array'] = array(
     drupal_html_class('field ' . $variables['element']['#field_name']),
   );
+  // We'll also add a custom class to be used for the label, to indicate its
+  // placement
+  if (!$variables['label_hidden']) {
+    $variables['label_class'] = $variables['element']['#label_display'];
+  }
 }
 
 /**
