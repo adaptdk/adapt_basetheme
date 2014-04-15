@@ -554,6 +554,71 @@ function adapt_basetheme_form($variables) {
   return '<form' . drupal_attributes($element['#attributes']) . '>' . $element['#children'] . '</form>';
 }
 
+// PANELS
+// ------
+
+/**
+ * Overwrite theme_panels_flexible().
+ */
+function adapt_basetheme_panels_flexible($variables) {
+  $css_id = $variables['css_id'];
+  $content = $variables['content'];
+  $settings = $variables['settings'];
+  $display = $variables['display'];
+  $layout = $variables['layout'];
+  $handler = $variables['renderer'];
+
+  panels_flexible_convert_settings($settings, $layout);
+
+  $renderer = panels_flexible_create_renderer(FALSE, $css_id, $content, $settings, $display, $layout, $handler);
+
+  // CSS must be generated because it reports back left/middle/right
+  // positions.
+  $css = panels_flexible_render_css($renderer);
+
+  if (!empty($renderer->css_cache_name) && empty($display->editing_layout)) {
+    ctools_include('css');
+    // Generate an id based upon rows + columns:
+    $filename = ctools_css_retrieve($renderer->css_cache_name);
+    if (!$filename) {
+      $filename = ctools_css_store($renderer->css_cache_name, $css, FALSE);
+    }
+
+    // Give the CSS to the renderer to put where it wants.
+    if ($handler) {
+      $handler->add_css($filename, 'module', 'all', FALSE);
+    }
+    else {
+      drupal_add_css($filename);
+    }
+  }
+  else {
+    // If the id is 'new' we can't reliably cache the CSS in the filesystem
+    // because the display does not truly exist, so we'll stick it in the
+    // head tag. We also do this if we've been told we're in the layout
+    // editor so that it always gets fresh CSS.
+    drupal_add_css($css, array('type' => 'inline', 'preprocess' => FALSE));
+  }
+
+  // Also store the CSS on the display in case the live preview or something
+  // needs it
+  $display->add_css = $css;
+
+  $output = panels_flexible_render_items($renderer, $settings['items']['canvas']['children'], $renderer->base['canvas']);
+
+  return $output;
+}
+
+/**
+ * Overwrite theme_panels_default_style_render_region().
+ */
+function adapt_basetheme_panels_default_style_render_region($variables) {
+  $output = implode('', $variables['panes']);
+
+  return $output;
+}
+
+
 // GENERAL
 // --------
 
