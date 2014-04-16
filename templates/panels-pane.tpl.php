@@ -21,7 +21,12 @@
   <?php print $pane_prefix; ?>
 <?php endif; ?>
 
-<div class="<?php print $classes; ?>">
+<?php if ($classes): ?>
+  <div class="<?php print $classes; ?>">
+<?php else: ?>
+  <div>
+<?php endif; ?>
+
   <?php if ($admin_links): ?>
     <?php print $admin_links; ?>
   <?php endif; ?>
