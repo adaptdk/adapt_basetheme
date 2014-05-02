@@ -11,6 +11,14 @@ scripts[] = js/respond.js
 scripts[] = js/script.js
 scripts[] = js/ios-orientationchange-fix.js
 
+; CSS
+; -----------------------------------
+; To remove css you can apply a technique called FOAD to remove it.
+; Read more about it at https://drupal.org/node/1536790
+; You specify the name of the css file you wish to remove like
+; stylesheets[all][] = system.messages.css
+; stylesheets[all][] = comment.css
+; stylesheets[all][] = node.css
 
 ; REGIONS
 ; -----------------------------------

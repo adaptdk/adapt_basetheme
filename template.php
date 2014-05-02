@@ -261,39 +261,6 @@ function adapt_basetheme_html_head_alter(&$head_elements) {
 }
 
 /**
- * Implements hook_css_alter().
- */
-function adapt_basetheme_css_alter(&$css) {
-  global $theme;
-  $path = drupal_get_path('theme', $theme);
-
-  // Get all css we need to keep
-  $css_to_keep = array_map('trim', explode("\n", theme_get_setting('css_to_keep')));
-  $css_to_keep = array_flip($css_to_keep);
-  // Add some defaults ourselves
-  $css_to_keep['admin_menu_toolbar.css'] = TRUE;
-  $css_to_keep['admin_menu.css'] = TRUE;
-  $css_to_keep['admin_menu.uid1.css'] = TRUE;
-  $css_to_keep['adminimal_admin_menu.css'] = TRUE;
-  $css_to_keep['contextual.css'] = TRUE;
-  $css_to_keep['links.css'] = TRUE;
-
-  foreach ($css as $key => $file) {
-    // Make sure we don't strip JS from our own theme
-    $theme_key = substr($key, 0, strlen($path));
-
-    // Get filename
-    // (always last part of path)
-    $filename_array = explode('/', $key);
-    $filename = end($filename_array);
-
-    if (!isset($css_to_keep[$filename]) && $theme_key != $path) {
-      unset($css[$key]);
-    }
-  }
-}
-
-/**
  * Implements hook_js_alter().
  */
 function adapt_basetheme_js_alter(&$js) {
