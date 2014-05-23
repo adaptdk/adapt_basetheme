@@ -19,6 +19,7 @@ function adapt_basetheme_preprocess_html(&$variables) {
     'page-taxonomy-term' => TRUE,
     'adminimal-menu' => TRUE,
     'menu-render-collapsed' => TRUE,
+    'logged-in' => TRUE,
     );
   // Get nodetype
   $nodetype = preg_grep('/^node-type/', $variables['classes_array']);
