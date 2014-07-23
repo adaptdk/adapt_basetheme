@@ -217,7 +217,7 @@ function adapt_basetheme_html_head_alter(&$head_elements) {
   unset($head_elements['system_meta_generator']);
 
   global $theme;
-  $path = drupal_get_path('theme', $theme);
+  $path = '/' . drupal_get_path('theme', $theme);
 
   // Add Apple touch icons
   // Standard
