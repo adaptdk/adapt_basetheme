@@ -11,14 +11,82 @@ scripts[] = js/respond.js
 scripts[] = js/script.js
 scripts[] = js/ios-orientationchange-fix.js
 
-; CSS
+; CSS FOAD
 ; -----------------------------------
-; To remove css you can apply a technique called FOAD to remove it.
+; To remove css you can apply a technique called FOAD.
 ; Read more about it at https://drupal.org/node/1536790
-; You specify the name of the css file you wish to remove like
-; stylesheets[all][] = system.messages.css
-; stylesheets[all][] = comment.css
-; stylesheets[all][] = node.css
+
+; Core
+stylesheets[all][] = comment-rtl.css
+stylesheets[all][] = comment.css
+stylesheets[all][] = field-rtl.css
+stylesheets[all][] = field.css
+stylesheets[all][] = file.css
+stylesheets[all][] = filter.css
+stylesheets[all][] = image-rtl.css
+stylesheets[all][] = image.css
+stylesheets[all][] = locale-rtl.css
+stylesheets[all][] = locale.css
+stylesheets[all][] = menu.css
+stylesheets[all][] = node.css
+stylesheets[all][] = search-rtl.css
+stylesheets[all][] = search.css
+stylesheets[all][] = system.base-rtl.css
+stylesheets[all][] = system.base.css
+stylesheets[all][] = system.maintenance.css
+stylesheets[all][] = system.menus-rtl.css
+stylesheets[all][] = system.menus.css
+stylesheets[all][] = system.messages-rtl.css
+stylesheets[all][] = system.messages.css
+stylesheets[all][] = system.theme-rtl.css
+stylesheets[all][] = system.theme.css
+stylesheets[all][] = taxonomy.css
+stylesheets[all][] = user-rtl.css
+stylesheets[all][] = user.css
+
+; Contrib
+stylesheets[all][] = addressfield-rtl.css
+stylesheets[all][] = addressfield.css
+stylesheets[all][] = entity.theme.css
+stylesheets[all][] = field_group-rtl.css
+stylesheets[all][] = field_group.css
+stylesheets[all][] = horizontal-tabs-rtl.css
+stylesheets[all][] = horizontal-tabs.css
+stylesheets[all][] = multipage-rtl.css
+stylesheets[all][] = multipage.css
+stylesheets[all][] = link-rtl.css
+stylesheets[all][] = link.css
+stylesheets[all][] = panels.css
+stylesheets[all][] = panels_dnd.css
+stylesheets[all][] = panels_page.css
+stylesheets[all][] = panelizer-ipe.css
+stylesheets[all][] = pm_existing_pages.css
+stylesheets[all][] = strongarm.css
+stylesheets[all][] = views-rtl.css
+stylesheets[all][] = views.css
+
+; Contrib - Commerce
+stylesheets[all][] = commerce_cart.theme.css
+stylesheets[all][] = commerce_checkout.base-rtl.css
+stylesheets[all][] = commerce_checkout.base.css
+stylesheets[all][] = commerce_checkout.theme-rtl.css
+stylesheets[all][] = commerce_checkout.theme.css
+stylesheets[all][] = commerce_customer.theme.css
+stylesheets[all][] = commerce_line_item.theme-rtl.css
+stylesheets[all][] = commerce_line_item.theme.css
+stylesheets[all][] = commerce_order.theme.css
+stylesheets[all][] = commerce_payment.theme-rtl.css
+stylesheets[all][] = commerce_payment.theme.css
+stylesheets[all][] = commerce_price.theme.css
+stylesheets[all][] = commerce_product.theme.css
+stylesheets[all][] = commerce_tax.theme-rtl.css
+stylesheets[all][] = commerce_tax.theme.css
+stylesheets[all][] = commerce_checkout_progress.css
+stylesheets[all][] = commerce_add_to_cart_confirmation-rtl.css
+stylesheets[all][] = commerce_add_to_cart_confirmation.css
+stylesheets[all][] = your_price.theme.css
+stylesheets[all][] = commerce_flat_rate.css
+stylesheets[all][] = commerce_search_api.css
 
 ; REGIONS
 ; -----------------------------------

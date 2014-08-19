@@ -9,13 +9,6 @@ function adapt_basetheme_form_system_theme_settings_alter(&$form, &$form_state) 
     '#type' => 'fieldset',
     '#title' => t('Basetheme settings'),
 
-    'css_to_keep' => array(
-      '#type' => 'textarea',
-      '#title' => t('CSS to keep'),
-      '#description' => t('Enter the CSS files you wish to keep. Enter one filename per line. CSS from your own theme cannot be stripped.'),
-      '#default_value' => theme_get_setting('css_to_keep'),
-      ),
-
     'js_to_strip' => array(
       '#type' => 'textarea',
       '#title' => t('JS to strip'),
