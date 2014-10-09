@@ -11,34 +11,35 @@
  * https://api.drupal.org/api/drupal/modules!field!theme!field.tpl.php/7
  */
 ?>
-<?php if ($field_wrapper): ?>
+<?php if (!empty($field_wrapper)): ?>
   <<?php print $field_wrapper; ?> class="<?php print $classes; ?>"<?php print $attributes; ?>>
 <?php endif; ?>
 
   <?php if (!$label_hidden) : ?>
-    <?php if ($label_wrapper): ?>
-      <<?php print $label_wrapper; ?> class="<?php print $label_class; ?>">
+    <?php if (!empty($label_wrapper)): ?>
+      <<?php print $label_wrapper; ?> class="<?php print isset($label_class) ? $label_class : NULL; ?>">
     <?php endif; ?>
 
     <?php print $label ?>&nbsp;
 
-    <?php if ($label_wrapper): ?>
+    <?php if (!empty($label_wrapper)): ?>
     </<?php print $label_wrapper; ?>>
     <?php endif; ?>
   <?php endif; ?>
 
   <?php foreach ($items as $delta => $item) : ?>
-    <?php if ($item_wrapper): ?>
+    <?php if (!empty($item_wrapper)): ?>
       <<?php print $item_wrapper; ?> class="<?php print $delta % 2 ? 'odd' : 'even'; ?>"<?php print $item_attributes[$delta]; ?>>
     <?php endif; ?>
 
     <?php print render($item); ?>
 
-    <?php if ($item_wrapper): ?>
+    <?php if (!empty($item_wrapper)): ?>
       </<?php print $item_wrapper; ?>>
     <?php endif; ?>
   <?php endforeach; ?>
 
-<?php if ($field_wrapper): ?>
+<?php if (!empty($field_wrapper)): ?>
   </<?php print $field_wrapper; ?>>
 <?php endif; ?>
+
