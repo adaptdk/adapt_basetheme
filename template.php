@@ -5,37 +5,6 @@
 // **********************
 
 /**
- * Implements template_preprocess_html().
- */
-function adapt_basetheme_preprocess_html(&$variables) {
-  // Add theme folder
-  $variables['theme_folder'] = base_path() . path_to_theme();
-
-  // Strip all CSS classes, but keep some
-  // We use array keys because isset() is faster & cleaner than a foreach loop
-  $classes_to_keep = array(
-    'front' => TRUE,
-    'not-front' => TRUE,
-    'page-taxonomy-term' => TRUE,
-    'adminimal-menu' => TRUE,
-    'menu-render-collapsed' => TRUE,
-    'logged-in' => TRUE,
-    );
-  // Get nodetype
-  $nodetype = preg_grep('/^node-type/', $variables['classes_array']);
-  if ($nodetype) {
-    $type = current($nodetype);
-    $classes_to_keep[$type] = TRUE;
-  }
-
-  foreach ($variables['classes_array'] as $key => $class) {
-    if (!isset($classes_to_keep[$class])) {
-      unset($variables['classes_array'][$key]);
-    }
-  }
-}
-
-/**
  * Implements template_preprocess_page().
  */
 function adapt_basetheme_preprocess_page(&$variables, $hook) {
