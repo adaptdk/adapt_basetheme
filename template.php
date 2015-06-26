@@ -5,6 +5,17 @@
 // **********************
 
 /**
+* Implements hook_preprocess_node().
+*/
+function adapt_basetheme_preprocess_node(&$vars) {
+  // Add a adapt_classes array
+  $view_mode = $vars['elements']['#view_mode'];
+  $vars['adapt_classes_array'][] = str_replace('_', '-', $view_mode);
+
+  $vars['adapt_classes'] = implode(' ', $vars['adapt_classes_array']);
+}
+
+/**
  * Implements template_preprocess_html().
  */
 function adapt_basetheme_preprocess_html(&$variables) {
