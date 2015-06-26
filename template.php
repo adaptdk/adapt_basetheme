@@ -216,37 +216,6 @@ function adapt_basetheme_preprocess_views_view_unformatted(&$variables) {
 function adapt_basetheme_html_head_alter(&$head_elements) {
   unset($head_elements['system_meta_generator']);
 
-  global $theme;
-  $path = '/' . drupal_get_path('theme', $theme);
-
-  // Add Apple touch icons
-  // Standard
-  $head_elements[] = array(
-    '#type' => 'html_tag',
-    '#tag' => 'link',
-    '#attributes' => array(
-      'rel' => 'apple-touch-icon',
-      'href' => $path . '/images/apple-touch-icon.png',
-      ),
-    );
-  // Bigger sizes
-  $sizes = array(
-    '144x144',
-    '114x114',
-    '72x72'
-    );
-  foreach ($sizes as $size) {
-    $head_elements[] = array(
-      '#type' => 'html_tag',
-      '#tag' => 'link',
-      '#attributes' => array(
-        'rel' => 'apple-touch-icon',
-        'sizes' => $size,
-        'href' => $path . '/images/apple-touch-icon-' . $size . '.png',
-        ),
-      );
-  }
-
   // Add meta viewport
   $head_elements[] = array(
     '#type' => 'html_tag',
