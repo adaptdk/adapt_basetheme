@@ -13,14 +13,25 @@ function adapt_basetheme_preprocess_html(&$variables) {
 
   // Strip all CSS classes, but keep some
   // We use array keys because isset() is faster & cleaner than a foreach loop
-  $classes_to_keep = array(
+  //
+  // ### Example of usage in settings.php
+  //   $conf['adapt_basetheme_body_classes_to_keep'] = array(
+  //   'front' => TRUE,
+  //   'not-front' => TRUE,
+  //   'page-taxonomy-term' => TRUE,
+  //   'adminimal-menu' => TRUE,
+  //   'menu-render-collapsed' => TRUE,
+  //   'logged-in' => TRUE,
+  // );
+
+  $classes_to_keep = variable_get('adapt_basetheme_body_classes_to_keep', array(
     'front' => TRUE,
     'not-front' => TRUE,
     'page-taxonomy-term' => TRUE,
     'adminimal-menu' => TRUE,
     'menu-render-collapsed' => TRUE,
     'logged-in' => TRUE,
-    );
+    ));
   // Get nodetype
   $nodetype = preg_grep('/^node-type/', $variables['classes_array']);
   if ($nodetype) {
@@ -29,7 +40,7 @@ function adapt_basetheme_preprocess_html(&$variables) {
   }
 
   foreach ($variables['classes_array'] as $key => $class) {
-    if (!isset($classes_to_keep[$class])) {
+    if (!isset($classes_to_keep[trim($class)])) {
       unset($variables['classes_array'][$key]);
     }
   }
